@@ -16,7 +16,7 @@ struct SWCharacterResponseWrapper: Codable {
     var characters: [SWCharacter]
 }
 
-class SWCharacter: Codable {
+class SWCharacter: Object, Codable {
     static let webServiceUrl: String = "https://edge.ldscdn.org/mobile/interview/directory"
     
     enum Affiliation: String {
@@ -27,19 +27,35 @@ class SWCharacter: Codable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, firstName, lastName, birthdate, profilePictureUrl = "profilePicture", forceSensitive, affiliationString = "affiliation"
+        case id, firstName, lastName, birthdate, profilePictureUrlString = "profilePicture", forceSensitive, affiliationString = "affiliation"
     }
     
-    var id: Int
-    var firstName: String
-    var lastName: String
-    var birthdate: String
-    var profilePictureUrl: URL
-    var forceSensitive: Bool
-    var affiliationString: String
+    @objc dynamic var id: Int = 0
+    @objc dynamic var firstName: String = ""
+    @objc dynamic var lastName: String = ""
+    @objc dynamic var birthdate: String = ""
+    @objc dynamic var profilePictureUrlString: String = ""
+    @objc dynamic var forceSensitive: Bool = false
+    @objc dynamic var affiliationString: String = ""
+    
+    var profilePictureUrl: URL? {
+        return URL(string: profilePictureUrlString)
+    }
     
     var affiliation: Affiliation? {
         return Affiliation(rawValue: affiliationString)
+    }
+    
+    static func getCharacters(completion: @escaping ([SWCharacter]?, Error?) -> Void) {
+        if let realm = try? Realm() {
+            let characters = realm.objects(SWCharacter.self)
+            if !characters.isEmpty {
+                completion([SWCharacter](characters), nil)
+                return
+            }
+        }
+        
+        fetchCharacters(completion: completion)
     }
     
     static func fetchCharacters(completion: @escaping ([SWCharacter]?, Error?) -> Void) {
@@ -59,7 +75,9 @@ class SWCharacter: Codable {
                 } else if let data = data {
                     do {
                         let wrapper = try JSONDecoder().decode(SWCharacterResponseWrapper.self, from: data)
-                        completion(wrapper.characters, nil)
+                        let characters = wrapper.characters
+                        completion(characters, nil)
+                        save(characters)
                     } catch {
                         completion(nil, error)
                     }
@@ -71,5 +89,24 @@ class SWCharacter: Codable {
         }
         
         session.resume()
+    }
+    
+    static func save(_ characters: [SWCharacter]) {
+        for character in characters {
+            character.save()
+        }
+    }
+    
+    func save(completion: ((Bool, Error?) -> Void)? = nil) {
+        do {
+            let realm = try Realm()
+            try realm.write {
+                realm.add(self)
+                completion?(true, nil)
+            }
+        } catch {
+            print(error)
+            completion?(false, error)
+        }
     }
 }

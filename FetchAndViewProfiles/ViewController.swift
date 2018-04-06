@@ -13,8 +13,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        SWCharacter.fetchCharacters { (characters, error) in
+        SWCharacter.getCharacters { (characters, error) in
             print(characters)
+            SWCharacter.getCharacters(completion: { (sameCharacters, newError) in
+                print(sameCharacters)
+            })
         }
     }
 }
