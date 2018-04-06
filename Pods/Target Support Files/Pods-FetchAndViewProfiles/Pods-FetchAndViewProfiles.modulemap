@@ -1,0 +1,6 @@
+framework module Pods_FetchAndViewProfiles {
+  umbrella header "Pods-FetchAndViewProfiles-umbrella.h"
+
+  export *
+  module * { export * }
+}
