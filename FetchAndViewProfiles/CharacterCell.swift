@@ -11,6 +11,8 @@ import Kingfisher
 
 class CharacterCell: UITableViewCell {
     
+    @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var insetView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -20,7 +22,7 @@ class CharacterCell: UITableViewCell {
         didSet {
             guard let character = character else { return }
             
-            profileImageView.kf.setImage(with: character.profilePictureUrl)
+            profileImageView.kf.setImage(with: character.profilePictureUrl, placeholder: UIImage(named: "r2d2"), options: nil, progressBlock: nil, completionHandler: nil)
             nameLabel.text = character.fullName
             affiliationLabel.text = character.affiliation?.title
             setNeedsDisplay()
@@ -32,30 +34,37 @@ class CharacterCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        insetView.layer.borderColor = UIColor.white.cgColor
-        insetView.layer.borderWidth = 3.0
-        insetView.layer.cornerRadius = cornerRadius
+        backgroundImageView.layer.borderColor = UIColor.white.cgColor
+        backgroundImageView.layer.borderWidth = 3.0
         
-        let bounds = insetView.bounds
-        let rect = CGRect(x: bounds.origin.x - 2.0, y: bounds.origin.y, width: bounds.width + 4.0, height: bounds.height - 2.0)
+        backgroundImageView.layer.cornerRadius = cornerRadius
+        backgroundImageView.layer.masksToBounds = true
+        
+        let bounds = shadowView.bounds
+        // magic numbers  :(
+        let rect = CGRect(x: bounds.origin.x - 2.0, y: bounds.origin.y, width: bounds.width + 4.0, height: bounds.height + 5.0)
         let shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
-        insetView.layer.shadowPath = shadowPath
+        shadowView.layer.shadowPath = shadowPath
     }
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         guard let character = character else { return }
         
-        insetView.layer.shadowColor = character.affiliation?.color
-        insetView.layer.shadowOpacity = 0.8
-        insetView.layer.shadowRadius = 5.0
+        shadowView.layer.shadowColor = character.affiliation?.color
+        shadowView.layer.shadowOpacity = 0.8
+        shadowView.layer.shadowRadius = 5.0
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        insetView.layer.shadowColor = nil
-        insetView.layer.shadowOpacity = 0.0
-        insetView.layer.shadowRadius = 0.0
+        profileImageView.kf.cancelDownloadTask()
+        nameLabel.text = nil
+        affiliationLabel.text = nil
+        
+        shadowView.layer.shadowColor = nil
+        shadowView.layer.shadowOpacity = 0.0
+        shadowView.layer.shadowRadius = 0.0
     }
 }
