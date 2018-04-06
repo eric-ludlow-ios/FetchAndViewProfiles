@@ -12,6 +12,7 @@
 		079662032076C7990035AA47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079662012076C7990035AA47 /* Main.storyboard */; };
 		079662052076C7990035AA47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 079662042076C7990035AA47 /* Assets.xcassets */; };
 		079662082076C7990035AA47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079662062076C7990035AA47 /* LaunchScreen.storyboard */; };
+		079662102077D4C20035AA47 /* SWCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0796620F2077D4C20035AA47 /* SWCharacter.swift */; };
 		C8F5D270F482BFB6758AF24D /* Pods_FetchAndViewProfiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F77977329AD624D162A7DA41 /* Pods_FetchAndViewProfiles.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		079662042076C7990035AA47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		079662072076C7990035AA47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		079662092076C7990035AA47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0796620F2077D4C20035AA47 /* SWCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SWCharacter.swift; sourceTree = "<group>"; };
 		202CC235CDDAB358077B19F5 /* Pods-FetchAndViewProfiles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FetchAndViewProfiles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FetchAndViewProfiles/Pods-FetchAndViewProfiles.debug.xcconfig"; sourceTree = "<group>"; };
 		D7FACD7430E2EB146E0A5A8E /* Pods-FetchAndViewProfiles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FetchAndViewProfiles.release.xcconfig"; path = "Pods/Target Support Files/Pods-FetchAndViewProfiles/Pods-FetchAndViewProfiles.release.xcconfig"; sourceTree = "<group>"; };
 		F77977329AD624D162A7DA41 /* Pods_FetchAndViewProfiles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FetchAndViewProfiles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,11 +63,12 @@
 		079661FC2076C7990035AA47 /* FetchAndViewProfiles */ = {
 			isa = PBXGroup;
 			children = (
-				079661FD2076C7990035AA47 /* AppDelegate.swift */,
-				079661FF2076C7990035AA47 /* ViewController.swift */,
-				079662012076C7990035AA47 /* Main.storyboard */,
-				079662042076C7990035AA47 /* Assets.xcassets */,
 				079662062076C7990035AA47 /* LaunchScreen.storyboard */,
+				079661FD2076C7990035AA47 /* AppDelegate.swift */,
+				079662012076C7990035AA47 /* Main.storyboard */,
+				079661FF2076C7990035AA47 /* ViewController.swift */,
+				0796620F2077D4C20035AA47 /* SWCharacter.swift */,
+				079662042076C7990035AA47 /* Assets.xcassets */,
 				079662092076C7990035AA47 /* Info.plist */,
 			);
 			path = FetchAndViewProfiles;
@@ -205,6 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				079662102077D4C20035AA47 /* SWCharacter.swift in Sources */,
 				079662002076C7990035AA47 /* ViewController.swift in Sources */,
 				079661FE2076C7990035AA47 /* AppDelegate.swift in Sources */,
 			);
