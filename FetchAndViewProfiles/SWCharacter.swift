@@ -24,6 +24,28 @@ class SWCharacter: Object, Codable {
         case resistance = "RESISTANCE"
         case firstOrder = "FIRST_ORDER"
         case sith = "SITH"
+        
+        var title: String {
+            switch self {
+            case .jedi:
+                return "Jedi Master"
+            case .resistance:
+                return "Resistance Leader"
+            case .firstOrder:
+                return "First Order"
+            case .sith:
+                return "Sith Lord"
+            }
+        }
+        
+        var color: CGColor {
+            switch self {
+            case .jedi, .resistance:
+                return UIColor.blue.cgColor
+            case .firstOrder, .sith:
+                return UIColor.red.cgColor
+            }
+        }
     }
     
     enum CodingKeys: String, CodingKey {
@@ -38,12 +60,21 @@ class SWCharacter: Object, Codable {
     @objc dynamic var forceSensitive: Bool = false
     @objc dynamic var affiliationString: String = ""
     
+    var fullName: String {
+        let name = firstName + " " + lastName
+        return name.trimmingCharacters(in: .whitespaces)
+    }
+    
     var profilePictureUrl: URL? {
         return URL(string: profilePictureUrlString)
     }
     
     var affiliation: Affiliation? {
         return Affiliation(rawValue: affiliationString)
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
     
     static func getCharacters(completion: @escaping ([SWCharacter]?, Error?) -> Void) {
