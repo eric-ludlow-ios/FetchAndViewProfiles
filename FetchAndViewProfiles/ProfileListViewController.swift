@@ -18,6 +18,7 @@ class ProfileListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        navigationItem.largeTitleDisplayMode = .always
         title = "The Stars"
         
         SWCharacter.getCharacters { (characters, error) in
@@ -29,6 +30,13 @@ class ProfileListViewController: UIViewController {
             self.characters = characters
             self.tableView?.reloadData()
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "toDetail" else { return }
+        guard let detailVC = segue.destination as? ProfileDetailViewController, let character = sender as? SWCharacter else { return }
+        
+        detailVC.character = character
     }
 }
 
@@ -42,5 +50,12 @@ extension ProfileListViewController: UITableViewDataSource {
         let character = characters[indexPath.row]
         cell.character = character
         return cell
+    }
+}
+
+extension ProfileListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let character = characters[indexPath.row]
+        performSegue(withIdentifier: "toDetail", sender: character)
     }
 }

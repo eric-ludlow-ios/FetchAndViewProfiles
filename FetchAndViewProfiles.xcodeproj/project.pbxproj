@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0715BFED207800F5004E15A4 /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BFEC207800F5004E15A4 /* CharacterCell.swift */; };
+		0715BFEF207832E2004E15A4 /* ProfileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BFEE207832E2004E15A4 /* ProfileDetailViewController.swift */; };
+		0715BFF12078500D004E15A4 /* Calendar+FVP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0715BFF02078500D004E15A4 /* Calendar+FVP.swift */; };
 		079661FE2076C7990035AA47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079661FD2076C7990035AA47 /* AppDelegate.swift */; };
 		079662002076C7990035AA47 /* ProfileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079661FF2076C7990035AA47 /* ProfileListViewController.swift */; };
 		079662032076C7990035AA47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 079662012076C7990035AA47 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		0715BFEC207800F5004E15A4 /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		0715BFEE207832E2004E15A4 /* ProfileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDetailViewController.swift; sourceTree = "<group>"; };
+		0715BFF02078500D004E15A4 /* Calendar+FVP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+FVP.swift"; sourceTree = "<group>"; };
 		079661FA2076C7990035AA47 /* FetchAndViewProfiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FetchAndViewProfiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		079661FD2076C7990035AA47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		079661FF2076C7990035AA47 /* ProfileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileListViewController.swift; sourceTree = "<group>"; };
@@ -69,8 +73,10 @@
 				079661FD2076C7990035AA47 /* AppDelegate.swift */,
 				079662012076C7990035AA47 /* Main.storyboard */,
 				079661FF2076C7990035AA47 /* ProfileListViewController.swift */,
+				0715BFEE207832E2004E15A4 /* ProfileDetailViewController.swift */,
 				0715BFEC207800F5004E15A4 /* CharacterCell.swift */,
 				0796620F2077D4C20035AA47 /* SWCharacter.swift */,
+				0715BFF02078500D004E15A4 /* Calendar+FVP.swift */,
 				079662042076C7990035AA47 /* Assets.xcassets */,
 				079662092076C7990035AA47 /* Info.plist */,
 			);
@@ -211,7 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0715BFEF207832E2004E15A4 /* ProfileDetailViewController.swift in Sources */,
 				079662102077D4C20035AA47 /* SWCharacter.swift in Sources */,
+				0715BFF12078500D004E15A4 /* Calendar+FVP.swift in Sources */,
 				079662002076C7990035AA47 /* ProfileListViewController.swift in Sources */,
 				079661FE2076C7990035AA47 /* AppDelegate.swift in Sources */,
 				0715BFED207800F5004E15A4 /* CharacterCell.swift in Sources */,

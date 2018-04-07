@@ -29,14 +29,13 @@ class CharacterCell: UITableViewCell {
         }
     }
     
-    private var cornerRadius: CGFloat = 5.0
+    private let cornerRadius: CGFloat = 5.0
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         backgroundImageView.layer.borderColor = UIColor.white.cgColor
         backgroundImageView.layer.borderWidth = 3.0
-        
         backgroundImageView.layer.cornerRadius = cornerRadius
         backgroundImageView.layer.masksToBounds = true
         
@@ -45,6 +44,9 @@ class CharacterCell: UITableViewCell {
         let rect = CGRect(x: bounds.origin.x - 2.0, y: bounds.origin.y, width: bounds.width + 4.0, height: bounds.height + 5.0)
         let shadowPath = UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).cgPath
         shadowView.layer.shadowPath = shadowPath
+        
+        profileImageView.layer.cornerRadius = cornerRadius
+        profileImageView.layer.masksToBounds = true
     }
     
     override func draw(_ rect: CGRect) {
