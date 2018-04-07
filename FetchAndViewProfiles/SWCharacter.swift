@@ -65,6 +65,14 @@ class SWCharacter: Object, Codable {
         return name.trimmingCharacters(in: .whitespaces)
     }
     
+    var age: Int {
+        return Calendar.age(from: birthdate)
+    }
+    
+    var forceUser: String {
+        return forceSensitive ? "Force User" : "\"Muggle\""
+    }
+    
     var profilePictureUrl: URL? {
         return URL(string: profilePictureUrlString)
     }

@@ -20,13 +20,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space" translatesAutoresizingMaskIntoConstraints="NO" id="LZk-dp-FO5">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t6L-mC-XHJ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="t6L-mC-XHJ">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharacterCell" rowHeight="178" id="z3V-WN-2SQ" customClass="CharacterCell" customModule="FetchAndViewProfiles" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CharacterCell" rowHeight="178" id="z3V-WN-2SQ" customClass="CharacterCell" customModule="FetchAndViewProfiles" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="178"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z3V-WN-2SQ" id="Izd-Oz-gfK">
@@ -129,26 +129,99 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="nIa-U2-obw"/>
+                    <navigationItem key="navigationItem" id="nIa-U2-obw">
+                        <barButtonItem key="backBarButtonItem" title=" " id="6Xc-tm-C8R"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="t6L-mC-XHJ" id="caH-80-5Qf"/>
+                        <segue destination="Hhr-9Y-OaW" kind="show" identifier="toDetail" id="3Aj-e1-wb6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="456.80000000000001" y="118.29085457271366"/>
         </scene>
+        <!--Profile Detail View Controller-->
+        <scene sceneID="Xdi-X4-fh3">
+            <objects>
+                <viewController id="Hhr-9Y-OaW" customClass="ProfileDetailViewController" customModule="FetchAndViewProfiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UOI-Mn-Qpl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="space" translatesAutoresizingMaskIntoConstraints="NO" id="xdc-SL-1Jh">
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6zz-FV-uFX">
+                                <rect key="frame" x="64" y="148" width="246" height="307.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Hjx-M1-aHb">
+                                <rect key="frame" x="64" y="148" width="246" height="307.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Hjx-M1-aHb" secondAttribute="height" multiplier="4:5" id="38N-MN-SeJ"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Affiliation" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRh-Hd-EFK">
+                                <rect key="frame" x="64" y="495.5" width="295" height="33.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Age:" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ex2-sV-e54">
+                                <rect key="frame" x="64" y="549" width="295" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eJ3-Ae-I5G" firstAttribute="trailing" secondItem="dRh-Hd-EFK" secondAttribute="trailing" constant="16" id="2EM-Xl-oUM"/>
+                            <constraint firstItem="xdc-SL-1Jh" firstAttribute="top" secondItem="eJ3-Ae-I5G" secondAttribute="top" id="2Hy-gg-YT0"/>
+                            <constraint firstItem="6zz-FV-uFX" firstAttribute="leading" secondItem="Hjx-M1-aHb" secondAttribute="leading" id="5fT-B0-QLG"/>
+                            <constraint firstItem="eJ3-Ae-I5G" firstAttribute="bottom" secondItem="xdc-SL-1Jh" secondAttribute="bottom" id="8d9-Uh-D0x"/>
+                            <constraint firstItem="6zz-FV-uFX" firstAttribute="top" secondItem="Hjx-M1-aHb" secondAttribute="top" id="KTC-wv-q3I"/>
+                            <constraint firstItem="6zz-FV-uFX" firstAttribute="bottom" secondItem="Hjx-M1-aHb" secondAttribute="bottom" id="L3l-vf-9Y0"/>
+                            <constraint firstItem="ex2-sV-e54" firstAttribute="leading" secondItem="dRh-Hd-EFK" secondAttribute="leading" id="OQJ-sP-7OB"/>
+                            <constraint firstItem="Hjx-M1-aHb" firstAttribute="top" secondItem="eJ3-Ae-I5G" secondAttribute="top" constant="32" id="PN3-nP-Tdg"/>
+                            <constraint firstItem="Hjx-M1-aHb" firstAttribute="centerX" secondItem="eJ3-Ae-I5G" secondAttribute="centerX" id="Ryp-zg-Vyr"/>
+                            <constraint firstItem="ex2-sV-e54" firstAttribute="trailing" secondItem="dRh-Hd-EFK" secondAttribute="trailing" id="S98-qo-Gfe"/>
+                            <constraint firstItem="dRh-Hd-EFK" firstAttribute="leading" secondItem="Hjx-M1-aHb" secondAttribute="leading" id="Ydo-c6-eVm"/>
+                            <constraint firstItem="6zz-FV-uFX" firstAttribute="trailing" secondItem="Hjx-M1-aHb" secondAttribute="trailing" id="Yv2-1A-ooH"/>
+                            <constraint firstItem="Hjx-M1-aHb" firstAttribute="leading" secondItem="eJ3-Ae-I5G" secondAttribute="leading" constant="64" id="dxS-EX-nTY"/>
+                            <constraint firstItem="eJ3-Ae-I5G" firstAttribute="trailing" secondItem="xdc-SL-1Jh" secondAttribute="trailing" id="eZ8-TA-Ggw"/>
+                            <constraint firstItem="xdc-SL-1Jh" firstAttribute="leading" secondItem="eJ3-Ae-I5G" secondAttribute="leading" id="qgW-QF-YqW"/>
+                            <constraint firstItem="dRh-Hd-EFK" firstAttribute="top" secondItem="Hjx-M1-aHb" secondAttribute="bottom" priority="800" constant="40" id="utO-LH-SY9"/>
+                            <constraint firstItem="ex2-sV-e54" firstAttribute="top" secondItem="dRh-Hd-EFK" secondAttribute="bottom" priority="900" constant="20" id="xMr-0A-PC8"/>
+                            <constraint firstItem="eJ3-Ae-I5G" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ex2-sV-e54" secondAttribute="bottom" constant="16" id="yFg-WY-Krb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eJ3-Ae-I5G"/>
+                    </view>
+                    <connections>
+                        <outlet property="affiliationLabel" destination="dRh-Hd-EFK" id="H6m-IK-z7r"/>
+                        <outlet property="ageLabel" destination="ex2-sV-e54" id="fc9-UJ-aA8"/>
+                        <outlet property="profileImageView" destination="Hjx-M1-aHb" id="m95-Oc-1hS"/>
+                        <outlet property="shadowView" destination="6zz-FV-uFX" id="1SJ-Hr-G5s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yjX-Kk-cgc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221.5999999999999" y="117.39130434782609"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="y4F-Dw-Wq9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="422-Wf-ICF" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qp5-5V-ng5">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="qp5-5V-ng5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.47442013491352863" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
